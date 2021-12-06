@@ -5,10 +5,17 @@ import './index.css';
 // import reportWebVitals from './reportWebVitals';
 
 class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+  
   render() {
     return (
-      <button className="square" onClick={function() {
-        console.log('click here');   }}>
+      <button className="square" onClick={() =>
+        console.log('click here')  }>
         {this.props.value}
       </button>
     );
