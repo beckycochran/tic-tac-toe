@@ -26,25 +26,31 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      xIsNext: true,
+      //everytime a player moves, xIsNext (boolean) will be flipped to determine which player goes next and the game's state will be saved.
+      //We'll update the Board's handleClick function to flip the value of xIsNext
     };
   }
 
   handleClick(i) {
     const squares = this.state.squares.slice();
     squares[i] = 'X';
-    this.setState({ squares });
+    <Square value={this.state.squares[i]}
+      onClick={() => this.handleClick(i)}
+    />
   }
 
   renderSquare(i) {
     return (
-      <Square value={this.state.squares[i]}
+      <Square
+        value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
       />
     );
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
