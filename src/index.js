@@ -7,10 +7,6 @@ import Game from 'components/Game';
 
 import { calculateWinner } from './helpers/calculateWinner';
 
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
-
 class Square extends React.Component {
   constructor(props) {
     super(props);
