@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+// import Square from 'components/Square';
 
 import { calculateWinner } from './helpers/calculateWinner';
 
@@ -49,8 +50,8 @@ class Board extends React.Component {
   }
 
   render() {
-
     const winner = calculateWinner(this.state.squares);
+    
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
@@ -82,6 +83,15 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [{
+        squares: Array(9).fill(null),
+      }],
+      xIsNext: true,
+    };
+  }
   render() {
     return (
       <div className="game">
