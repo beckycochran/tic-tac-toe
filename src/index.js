@@ -5,10 +5,6 @@ import './index.css';
 import { calculateWinner } from './helpers/calculateWinner';
 
 class Square extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = null;
-  }
 
   render() {
     return (
