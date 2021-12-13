@@ -5,9 +5,7 @@ import './index.css';
 
 import { calculateWinner } from './helpers/calculateWinner';
 
-class Square extends React.Component {
-
-  render() {
+function Square(props) {
     return (
       <button
         className="square"
@@ -15,7 +13,6 @@ class Square extends React.Component {
         {this.props.value}
       </button>
     );
-  }
 }
 
 class Board extends React.Component {
@@ -54,7 +51,7 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
- 
+
   handleClick(i) {
     const history = this.state.history;
     const current = history[history.length - 1];
@@ -78,8 +75,8 @@ class Game extends React.Component {
 
     const moves = history.map((step, move) => {
       const desc = move ?
-      'Go to move #' + move :
-      'Go to game start';
+        'Go to move #' + move :
+        'Go to game start';
       return (
         <li>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
