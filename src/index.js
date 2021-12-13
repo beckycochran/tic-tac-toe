@@ -20,10 +20,6 @@ class Square extends React.Component {
 
 class Board extends React.Component {
 
-
-
-
-
   renderSquare(i) {
     return (
       <Square
@@ -37,7 +33,6 @@ class Board extends React.Component {
 
     return (
       <div>
-        <div className="status">{status}</div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -59,17 +54,7 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
-  
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {
-    //     history: [{
-    //       squares: Array(9).fill(null),
-    //     }],
-    //     xIsNext: true,
-    //   };
-    // }
-
+ 
   handleClick(i) {
     const history = this.state.history;
     const current = history[history.length - 1];
@@ -103,8 +88,8 @@ class Game extends React.Component {
       <div className="game">
         <div className="game-board">
           <Board
-          squares={current.squares}
-          onClick={(i) => this.handleClick(i)}
+            squares={current.squares}
+            onClick={(i) => this.handleClick(i)}
           />
         </div>
         <div className="game-info">
