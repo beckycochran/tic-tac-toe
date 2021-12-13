@@ -90,8 +90,8 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[history.length - 1];
     const squares = this.state.squares.slice();
-    let status;
 
+    let status;
     if (winner) {
       status = 'Winner: ' + winner;
     } else {
@@ -102,7 +102,10 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board />
+          <Board
+          squares={current.squares}
+          onClick={(i) => this.handleClick(i)}
+          />
         </div>
         <div className="game-info">
           <div>{status}</div>
